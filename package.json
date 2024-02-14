@@ -1,0 +1,31 @@
+{
+  "name": "shoppinglistapi-nosql",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "seed": "node config/seeds.js",
+    "watch": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Sergrojas29/ShoppingListAPI-NoSQL.git"
+  },
+  "author": "Sergio Rojas",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Sergrojas29/ShoppingListAPI-NoSQL/issues"
+  },
+  "homepage": "https://github.com/Sergrojas29/ShoppingListAPI-NoSQL#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "mongoose": "^7.0.2",
+    "mongodb": "^5.1.0",
+    "dotenv": "^16.3.1",
+    "bcrypt": "^5.1.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.3"
+  }
+}
