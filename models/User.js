@@ -1,5 +1,6 @@
 const { Schema, model } = require('mongoose')
 const bcrypt = require('bcrypt');
+const settingSchema = require('./Setting')
 
 const userSchema = new Schema(
     {
@@ -14,7 +15,6 @@ const userSchema = new Schema(
             require: true
         },
         setting: [settingSchema],
-        shoppingList: [shoppingListSchema],
         recoveryPassword: {
             type: String,
             require: false,

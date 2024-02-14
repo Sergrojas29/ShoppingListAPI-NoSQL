@@ -1,23 +1,43 @@
-const { Schema, model } = require('mongoose')
-const bcrypt = require('bcrypt');
+const { Schema } = require('mongoose')
 
-const userSchema = new Schema(
+
+const saveData = {
+    autoComplete: true,
+    darktheme: true,
+    duplicates: false,
+    list: ['EGGS'],
+    checked: [],
+    name: "Guest",
+    saveOld: true,
+
+}
+
+const itemSchema = new Schema({name: String})
+const checkedSchema = new Schema({name: String})
+
+const settingSchema = new Schema(
     {
-        username: {
-            type: String,
-            required: true,
-            unique: true,
-            trim: true
+        autoComplete: {
+            type: Boolean,
+            default: false,
+            required: true
         },
-        password: {
-            type: String,
-            require: true
+        darktheme: {
+            type: Boolean,
+            default: true,
+            required: true
         },
-        setting: [settingSchema],
-        shoppingList: [shoppingListSchema],
-        recoveryPassword: {
-            type: String,
-            require: false,
+        duplicates: {
+            type: Boolean,
+            default: false,
+            required: true
+        },
+        list: [itemSchema],
+        checked: [checkedSchema],
+        saveOld: {
+            type: Boolean,
+            default: false,
+            required: true
         },
     },
     {
@@ -27,9 +47,6 @@ const userSchema = new Schema(
     }
 );
 
-const User = model('User', userSchema);
 
 
-
-
-module.exports = User
+module.exports = settingSchema

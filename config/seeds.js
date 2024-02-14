@@ -1,25 +1,28 @@
 const db = require('./connection')
 
-const { Book } = require('../models')
+const { User, Setting } = require('../models')
 
 const testSetting = {
-    settingTest: 'test'
-}
+    autoComplete: true,
+    darktheme: true,
+    duplicates: false,
+    list: [],
+    checked: [],
+    saveOld: true,
 
-const testlist = {
-    listTest: ['egg', 'milk', 'bread']
 }
 
 
 sampleUser = [
-    {username: 'SergTest', password: 'testpass', setting: testSetting, shoppingList: testlist,recoveryPassword: 'absegami'}
+    {username: 'SergTest', password: 'testpass', setting: testSetting, recoveryPassword: 'absegami'},
+    {username: 'Test2', password: 'testpass', setting: testSetting, recoveryPassword: 'hero'}
 ]
 
 db.once('open', async () => {
     try {
         
-        const books = await Book.insertMany(sampleBooks)
-        console.log('Books Created')
+        const users = await User.insertMany(sampleUser)
+        console.log('User Created')
         process.exit()
         
     } catch (error) {
