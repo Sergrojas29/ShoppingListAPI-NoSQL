@@ -5,39 +5,42 @@ const saveData = {
     autoComplete: true,
     darktheme: true,
     duplicates: false,
-    list: ['EGGS'],
+    list: ['EGGS', 'BREAD', 'MILK'],
     checked: [],
     name: "Guest",
     saveOld: true,
 
 }
 
-const itemSchema = new Schema({name: String})
-const checkedSchema = new Schema({name: String})
+const itemSchema = new Schema({ type: [String], default: ['EGGS', 'BREAD', 'MILK'] })
+const checkedSchema = new Schema({ type: [String], default: ['APPLE', 'BEEF',] })
 
 const settingSchema = new Schema(
     {
         autoComplete: {
             type: Boolean,
-            default: false,
-            required: true
+            default: true,
+            // required: true
         },
         darktheme: {
             type: Boolean,
-            default: true,
-            required: true
+            default: false,
         },
         duplicates: {
             type: Boolean,
             default: false,
-            required: true
         },
-        list: [itemSchema],
-        checked: [checkedSchema],
+        list: {
+            type: [String],
+            default: ['BREAD', 'EGGS', 'MILK']
+        },
+        checked: {
+            type: [String],
+            default: ['BREAD', 'EGGS', 'MILK']
+        },
         saveOld: {
             type: Boolean,
             default: false,
-            required: true
         },
     },
     {

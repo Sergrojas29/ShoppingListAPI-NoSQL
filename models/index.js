@@ -1,4 +1,4 @@
 const User = require('./User')
-// const Setting = require('./Setting')
+// const settingSchema = require('./Setting')
 
-module.exports = {User , Setting}
+module.exports = {User}
